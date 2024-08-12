@@ -7,12 +7,24 @@ class QuizScreen extends StatefulWidget {
 
 class _QuizScreenState extends State<QuizScreen> {
   int? selectedAnswer;
+  final int correctAnswer = 2; // Assuming option 2 is correct
+
+  void checkAnswer() {
+    // Implement logic to check answer and provide feedback
+    if (selectedAnswer == correctAnswer) {
+      // Display correct answer message
+      print('Correct!');
+    } else {
+      // Display incorrect answer message
+      print('Incorrect!');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz'),
+        title: Text('Quiz Screen'),
       ),
       body: Column(
         children: [
@@ -57,7 +69,10 @@ class _QuizScreenState extends State<QuizScreen> {
               });
             },
           ),
-          // Add more options or questions as needed
+          ElevatedButton(
+            onPressed: checkAnswer,
+            child: Text('Submit'),
+          ),
         ],
       ),
     );
