@@ -1,0 +1,24 @@
+{
+  "questions": [
+    {
+      "question": "What is Python?",
+      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
+      "correctAnswer": 2
+    },
+
+    {
+      "question": "What is Python?",
+      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
+      "correctAnswer": 2
+    },
+    {
+      "question": "What is Python?",
+      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
+      "correctAnswer": 2
+    },  {
+      "question": "What is Python?",
+      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
+      "correctAnswer": 2
+    }
+  ]
+}
