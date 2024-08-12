@@ -16,9 +16,9 @@ class _QuizScreenState extends State<QuizScreen> {
       ),
       body: Column(
         children: [
-          Text('This is the question'),
+          Text('What is Python?'),
           RadioListTile(
-            title: Text('Option 1'),
+            title: Text('A type of snake'),
             value: 1,
             groupValue: selectedAnswer,
             onChanged: (value) {
@@ -28,7 +28,7 @@ class _QuizScreenState extends State<QuizScreen> {
             },
           ),
           RadioListTile(
-            title: Text('Option 2'),
+            title: Text('A programming language'),
             value: 2,
             groupValue: selectedAnswer,
             onChanged: (value) {
@@ -37,8 +37,27 @@ class _QuizScreenState extends State<QuizScreen> {
               });
             },
           ),
-          // Add more options as needed
-          // Button to submit answer or next question
+          RadioListTile(
+            title: Text('A type of food'),
+            value: 3,
+            groupValue: selectedAnswer,
+            onChanged: (value) {
+              setState(() {
+                selectedAnswer = value;
+              });
+            },
+          ),
+          RadioListTile(
+            title: Text('A city'),
+            value: 4,
+            groupValue: selectedAnswer,
+            onChanged: (value) {
+              setState(() {
+                selectedAnswer = value;
+              });
+            },
+          ),
+          // Add more options or questions as needed
         ],
       ),
     );
