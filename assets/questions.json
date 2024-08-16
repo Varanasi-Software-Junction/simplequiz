@@ -1,23 +1,23 @@
 {
   "questions": [
     {
-      "question": "What is Python?",
-      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
-      "correctAnswer": 2
+      "question": "What is the  capital of India?",
+      "options": ["New Delhi", "Varanasi", "Mumbai", "None of these"],
+      "correctAnswer": 1
     },
 
     {
-      "question": "What is Python?",
-      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
+      "question": "What is the capital of Afghanistan?",
+      "options": ["Islamabad", "Kabul", "Lucknow", "Tokyo"],
       "correctAnswer": 2
     },
     {
-      "question": "What is Python?",
-      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
-      "correctAnswer": 2
+      "question": "What of these is the capital of a country?",
+      "options": ["Los Angeles", "New York", "Beijing", "Liverpool"],
+      "correctAnswer": 3
     },  {
-      "question": "What is Python?",
-      "options": ["A type of snake", "A programming language", "A type of food", "A city"],
+      "question": "Which country's capital is Colombo?",
+      "options": ["Sri Lanka", "Russia", "USA", "Pakistan"],
       "correctAnswer": 2
     }
   ]
