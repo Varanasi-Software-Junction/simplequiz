@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:simplequiz/question.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'dart:async';
+
 class QuizScreen extends StatefulWidget {
   @override
   _QuizScreenState createState() => _QuizScreenState();
@@ -10,14 +12,37 @@ class QuizScreen extends StatefulWidget {
 class _QuizScreenState extends State<QuizScreen> {
   List<Question> questions = [];
   int currentQuestionIndex = 0;
-  int score=0;
+  int score = 0;
 
   bool isQuizOver = false;
   int? selectedAnswer;
+  int timeLeft = 30; // Adjust the initial time as needed
+  Timer? timer;
   @override
   void initState() {
     super.initState();
     loadQuestions();
+    startTimer();
+  }
+
+  //******************************************************************
+  void startTimer() {
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        if (timeLeft > 0) {
+          timeLeft--;
+        } else {
+          // Handle timeout (e.g., move to next question or end quiz)
+          timer.cancel();
+        }
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
   }
 //**********************************************************
 
@@ -39,15 +64,13 @@ class _QuizScreenState extends State<QuizScreen> {
   }
   //*******************************************************
 
-
-
-
   void checkAnswer() {
     if (selectedAnswer == questions[currentQuestionIndex].correctAnswer) {
       score++;
     }
     nextQuestion();
   }
+
   void nextQuestion() {
     if (currentQuestionIndex < questions.length - 1) {
       setState(() {
@@ -60,22 +83,27 @@ class _QuizScreenState extends State<QuizScreen> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Quiz'),
+        title: const Text('Quiz'),
       ),
       body: Column(
         children: [
           if (!isQuizOver)
             Column(
               children: [
+                Text('Time left: $timeLeft seconds'),
                 Text(questions[currentQuestionIndex].question),
                 ...questions[currentQuestionIndex].options.map((option) {
                   return RadioListTile(
                     title: Text(option),
-                    value: questions[currentQuestionIndex].options.indexOf(option) + 1,
+                    value: questions[currentQuestionIndex]
+                            .options
+                            .indexOf(option) +
+                        1,
                     groupValue: selectedAnswer,
                     onChanged: (value) {
                       setState(() {
@@ -96,5 +124,4 @@ class _QuizScreenState extends State<QuizScreen> {
       ),
     );
   }
-
 }
